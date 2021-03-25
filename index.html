@@ -16,11 +16,17 @@
 <body>
     <div class="grid-layout">
         <header class="center">
-            <h1>Hangman Game</h1>
+            <h1 class="header__h1">Hangman Game</h1>
+            <p class="header__p">By David Hurtado</p>
         </header>
         <main id="main">
-            <h2 class="main__presentation-title">Yeah, welcome to the hangman game.</h2>
-            <button></button>
+            <section class="presentation center">
+                <div class="presentation__image">
+                    <img src="./img/principal.jpg" alt="A person being hanged.">
+                    <img id="img-hang" src="./img/1.jpg" alt="A person hanging another person.">
+                </div>
+                <div class="presentation__button center" id="presentation-button"><p>Let's play!</p></div>
+            </section>
         </main>
     </div>
     <script src="./main.js"></script>
