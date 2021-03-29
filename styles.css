@@ -102,7 +102,7 @@ main {
 
 .presentation__login {
   width: 250px;
-  height: 400px;
+  /* height: 430px; */
   padding: 15px;
 
   color: white;
@@ -159,11 +159,18 @@ main {
   filter: brightness(120%);
 }
 
+.presentation__login__error {
+  height: 100%;
+  width: 100%;
+  margin-top: 10px;
+  font-size: 1.5rem;
+}
+
 .presentation__login--summit {
   height: 30px;
   width: 120px;
 
-  margin: 15px auto 0 auto;
+  margin: 10px auto 0 auto;
 
   font-size: 2rem;
   background-color: rgba(34, 184, 54, 0.658);
@@ -173,6 +180,18 @@ main {
 
 .presentation__login--summit:hover {
   background-color: rgba(15, 219, 42, 0.658);
+}
+
+@keyframes avatar-selected {
+  from {
+    border: solid 3px red;
+  }
+  50% {
+    border: solid 5px red;
+  }
+  to {
+    border: solid 3px red;
+  }
 }
 
 @keyframes background-degraded {
