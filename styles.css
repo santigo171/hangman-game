@@ -27,7 +27,8 @@ html {
 }
 
 header {
-  padding: 0 15px;
+  display: grid;
+  grid-template-columns: 50px 1fr 50px;
 
   color: #000;
 }
@@ -40,9 +41,21 @@ header {
   font-size: 2rem;
 }
 
-@media (min-width: 430px) {
+.header__version {
+  text-align: center;
+  font-size: 1rem;
+  color: #000;
+}
+
+@media (min-width: 460px) {
+  header {
+    margin: 0 30px;
+  }
   .header__h1 {
     font-size: 4.5rem;
+  }
+  .header__version {
+    font-size: 1.5rem;
   }
 }
 

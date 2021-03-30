@@ -6,8 +6,9 @@
 // - choose avatar and username
 
 const main = document.getElementById('main');
+const body = document.getElementById('body');
 
-// Messages
+// Dom elements
 const presentation_section = `
 <div class="presentation__login-father center" id="presentation-login" style="display: none;">
     <div class="presentation__login">
@@ -32,10 +33,6 @@ const presentation_section = `
     <div class="presentation__button center" id="presentation-button"><p>Let's play!</p></div>
 </section>
 `;
-
-const menu_section = `
-<h1 class="center">hola <span id="h1-username"></span></h1>
-`
 
 // Variables
 let iAnimate = 2;
@@ -94,11 +91,12 @@ const presentationLoginUsername_input = document.getElementById('username-input'
 const presentationLoginSummit = document.getElementById('presentation-login-summit');
 const presentationLoginError_div = document.getElementById('avatar-error-message');
 
-// Put all images into the presentationLoginAvatar_div
-for(i = 2; i <= imgNumber; i++) {
-    imgList = imgList + `<img onclick="avatarSelection(this)" id="presentation_img${i}" src="./img/character/${i}.jpg" alt="character" class="presentation__login__avatar--img">`;
+if (true) { // Put all images into the presentationLoginAvatar_div    
+    for(i = 2; i <= imgNumber; i++) {
+        imgList = imgList + `<img onclick="avatarSelection(this)" id="presentation_img${i}" src="./img/character/${i}.jpg" alt="character" class="presentation__login__avatar--img">`;
+    }
+    presentationLoginAvatar_div.innerHTML = imgList;
 }
-presentationLoginAvatar_div.innerHTML = imgList;
 
 // When click the button put the log in window
 presentationButton_div.addEventListener('click', _ => {
@@ -119,9 +117,10 @@ presentationLoginSummit.addEventListener('click', _ => {
         presentationLoginError_div.innerHTML = `Please select an avatar.`
     } else {
         userInfo = new User(username, avatar, 0.0);
-        main.innerHTML = menu_section;
-        const usernameOutput_h1 = document.getElementById('h1-username');
-        usernameOutput_h1.innerHTML = userInfo.username;
+        const gameMenu_script = document.createElement('script');
+        gameMenu_script.type = 'text/javascript';
+        gameMenu_script.src = './gameMenu.js';
+        body.appendChild(gameMenu_script);
     }
     setTimeout(() => {
         presentationLoginError_div.innerHTML = "";
