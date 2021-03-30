@@ -94,14 +94,14 @@ presentationLoginAvatar_div.innerHTML = imgList;
 // Every image now have an add event listener
 for(let i = 1; i <= imgNumber; i++) {
     let img = document.getElementById(`presentation_img${i}`);
-    img.addEventListener('click', (e) => {
+    img.addEventListener('click', (event) => {
         for(let i = 1; i <= imgNumber; i++) { // Erase the border of all img
             let img = document.getElementById(`presentation_img${i}`);
             img.style.border = ''
         }
-        let element = e.path[0];
-        element.style.border = 'solid 3px red';
-        avatar = element;
+        let domElement = event.path[0];
+        domElement.style.border = 'solid 3px red';
+        avatar = domElement;
     })
 }
 
