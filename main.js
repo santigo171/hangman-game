@@ -42,7 +42,7 @@ let iAnimate = 2;
 const imgNumber = 45;
 let continueAnimating = true;
 
-let imgList = '<img id="presentation_img1" src="./img/character/1.jpg" alt="character" class="presentation__login__avatar--img">';
+let imgList = '<img onclick="avatarSelection(this)" id="presentation_img1" src="./img/character/1.jpg" alt="character" class="presentation__login__avatar--img">';
 let avatar;
 
 let userInfo = {};
@@ -75,6 +75,15 @@ function animatePresentation_img() {
     }, 300);
 }
 
+const avatarSelection = (element) => {
+    for(let i = 1; i <= imgNumber; i++) { //Erase the border of all img
+        let img = document.getElementById(`presentation_img${i}`);
+        img.style.border = '';
+    }
+    element.style.border = 'solid 3px red';
+    avatar = element;
+}
+
 // Presentation
 main.innerHTML = presentation_section;
 const presentationButton_div = document.getElementById('presentation-button');
@@ -87,23 +96,9 @@ const presentationLoginError_div = document.getElementById('avatar-error-message
 
 // Put all images into the presentationLoginAvatar_div
 for(i = 2; i <= imgNumber; i++) {
-    imgList = imgList + `<img id="presentation_img${i}" src="./img/character/${i}.jpg" alt="character" class="presentation__login__avatar--img">`;
+    imgList = imgList + `<img onclick="avatarSelection(this)" id="presentation_img${i}" src="./img/character/${i}.jpg" alt="character" class="presentation__login__avatar--img">`;
 }
 presentationLoginAvatar_div.innerHTML = imgList;
-
-// Every image now have an add event listener
-for(let i = 1; i <= imgNumber; i++) {
-    let img = document.getElementById(`presentation_img${i}`);
-    img.addEventListener('click', (event) => {
-        for(let i = 1; i <= imgNumber; i++) { // Erase the border of all img
-            let img = document.getElementById(`presentation_img${i}`);
-            img.style.border = ''
-        }
-        let domElement = event.path[0];
-        domElement.style.border = 'solid 3px red';
-        avatar = domElement;
-    })
-}
 
 // When click the button put the log in window
 presentationButton_div.addEventListener('click', _ => {
