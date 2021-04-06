@@ -19,7 +19,7 @@ presentation_login.innerHTML = `
         <p class="presentation__login--p">Looks like is the first time you play...</p>
         <div class="presentation__login__form">
             <label for="username">Enter your name:</label>
-            <input id="username-input" name="username" maxlength="20" type="text">
+            <input id="username-input" name="username" maxlength="25" type="text">
             <label>Select an avatar:</label>
             <div class="presentation__login__avatar" id="login-avatar-div"></div>
             <div id="avatar-error-message" class="presentation__login__error"> </div>
@@ -120,6 +120,7 @@ function showPresentation_login(createOrUpdate) {
     // Put the presentation login div visible
     continueAnimating = false;
     if (createOrUpdate == 'create') {
+        console.log('showPresentation_login create section started')
         if (userInfo_localStorage == null) {
             level = 0.0;
             presentationLogin_div.style.display = 'grid';
@@ -130,6 +131,8 @@ function showPresentation_login(createOrUpdate) {
         presentationLogin_div.style.display = 'grid';
         const presentationLogin_p = document.querySelector('.presentation__login--p');
         presentationLogin_p.innerText = 'Modify your username and you avatar!';
+
+        presentationLoginUsername_input.value = userInfo.username;
         level = userInfo.level;
     }
 
