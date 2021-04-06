@@ -1,8 +1,16 @@
+console.log('gameMenu.js started loading');
+userInfo = JSON.parse(localStorage.getItem('userInfo_hangmanGame'));
+
 // Dom elements
 const menu_section = `
-<h1 class="center">Username: <span id="h1-username"></span></h1>
-<p>Avatar: </p>
-<div class="center" id="div-avatar"></div>
+<section class="menu">
+    <div class="menu__user center">
+        <p class="menu__user--username">${userInfo.username}</p>
+        <img class="menu__user--avatar" src="./img/character/${userInfo.avatar}.jpg" alt="User avatar">
+        <p class="menu__user--level">Level ${userInfo.level}</p>
+        <img class="menu__user--edit" id="user-edit" src="./img/asset/edit.svg">
+    </div>
+</section>
 `
 
 // Variables
@@ -13,12 +21,21 @@ class Game {
 }
 
 // Functions
+const updateMenu_section = () => {
+    const menu_section = `
+    <section class="menu">
+        <div class="menu__user center">
+            <p class="menu__user--username">${userInfo.username}</p>
+            <img class="menu__user--avatar" src="./img/character/${userInfo.avatar}.jpg" alt="User avatar">
+            <p class="menu__user--level">Level ${userInfo.level}</p>
+            <img class="menu__user--edit" id="user-edit" src="./img/asset/edit.svg">
+        </div>
+    </section>
+    `
+    main.innerHTML = menu_section;
+}
 
 // Program
 main.innerHTML = menu_section;
-
-const usernameOutput_h1 = document.getElementById('h1-username');
-const avatarOutput_div = document.getElementById('div-avatar');
-
-usernameOutput_h1.innerHTML = userInfo.username;
-avatarOutput_div.appendChild(userInfo.avatar);
+const menuUserEdit_img = document.getElementById('user-edit');
+menuUserEdit_img.addEventListener('click', _ => showPresentation_login('update'));

@@ -107,15 +107,21 @@ main {
 
 .presentation__login-father {
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 89%;
+  height: 100%;
 
   background-color: rgba(0, 0, 0, 0.315);
 }
 
 .presentation__login {
+  position: relative;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
   width: 250px;
-  /* height: 430px; */
+  max-height: 430px;
   padding: 15px;
 
   color: white;
@@ -193,6 +199,62 @@ main {
 
 .presentation__login--summit:hover {
   background-color: rgba(15, 219, 42, 0.658);
+}
+
+.menu__user {
+  width: 250px;
+
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+
+  border-radius: 0 0 20% 20%;
+  padding-left: 20px;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  grid-template-rows: 60% 40%;
+
+  background-color: rgb(255, 255, 255);
+}
+
+@media (min-width: 850px) {
+  .menu__user {
+    height: 100px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: unset;
+
+    padding: 25px;
+    border-radius: 0;
+
+    grid-gap: 17px;
+  }
+}
+
+.menu__user--edit {
+  width: 20px;
+  cursor: pointer;
+}
+
+.menu__user--username {
+  width: 100%;
+  font-size: 1.7rem;
+  text-align: left;
+}
+.menu__user--avatar {
+  border-radius: 50%;
+  grid-column: 2;
+  /* grid-row: span 2; */
+  width: 100%;
+}
+
+.menu__user--level {
+  width: 100%;
+
+  font-size: 1.4rem;
+  color: rgb(78, 59, 185);
 }
 
 @keyframes avatar-selected {
