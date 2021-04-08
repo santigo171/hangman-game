@@ -9,7 +9,7 @@
 const main = document.getElementById('main');
 const body = document.getElementById('body');
 
-//  Dom elements 
+/*------- Dom elements -------*/ 
 const presentation_login = document.createElement('div');
 presentation_login.className += 'presentation__login-father', 'center';
 presentation_login.setAttribute('id', 'presentation-login');
@@ -44,7 +44,7 @@ const gameMenu_script = document.createElement('script');
 gameMenu_script.type = 'text/javascript';
 gameMenu_script.src = './gameMenu.js';
 
-// Variables
+/*------- Variables -------*/ 
 var userInfo_localStorage = localStorage.getItem('userInfo_hangmanGame');
 
 let iAnimate = 2;
@@ -57,7 +57,7 @@ let avatar;
 let userInfo = {};
 
 
-// Classes:
+/*------- Classes -------*/ 
 class User {
     constructor(username, avatar, level) {
         this.username = username;
@@ -66,7 +66,7 @@ class User {
     }
 }
 
-// Functions:
+/*------- Functions -------*/ 
 const avatarSelection = (element) => {
     for(let i = 1; i <= imgNumber; i++) { //Erase the border of all img
         let img = document.getElementById(`presentation_img${i}`);
@@ -155,6 +155,7 @@ function animatePresentation_img() {
     }, 300);
 }
 
+/*------- Program -------*/ 
 // Presentation
 main.innerHTML = presentation_section;
 const presentationButton_div = document.getElementById('presentation-button');

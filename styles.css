@@ -63,6 +63,31 @@ main {
   background-color: rgb(59, 59, 59);
 }
 
+.twitter {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  z-index: 3;
+
+  width: 60px;
+  height: 55px;
+
+  border-radius: 50% 0 0 0;
+  padding: 10px;
+
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.twitter__img {
+  width: 40px;
+}
+
+.twitter__img:hover {
+  animation-name: rotate;
+  animation-duration: 3s;
+}
+
 .presentation {
   height: 70%;
 
@@ -255,6 +280,15 @@ main {
 
   font-size: 1.4rem;
   color: rgb(78, 59, 185);
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(365deg);
+  }
 }
 
 @keyframes avatar-selected {

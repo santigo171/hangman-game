@@ -1,7 +1,7 @@
 console.log('gameMenu.js started loading');
 userInfo = JSON.parse(localStorage.getItem('userInfo_hangmanGame'));
 
-// Dom elements
+/*------- Dom elements -------*/ 
 const menu_section = `
 <section class="menu">
     <div class="menu__user center">
@@ -13,21 +13,21 @@ const menu_section = `
 </section>
 `
 
-// Variables
+/*------- Variables -------*/ 
 
-// Classes
+/*------- Classes -------*/ 
 class Game {
     constructor(){}
 }
 
-// Functions
+/*------- Functions -------*/ 
 const updateMenu_section = () => {
     menuUserUsername.innerHTML = userInfo.username;
     menuUserAvatar.setAttribute('src', `./img/character/${userInfo.avatar}.jpg`);
     menuUserLevel.innerHTML = `Level ${userInfo.level}`;
 }
 
-// Program
+/*------- Program -------*/ 
 main.innerHTML = menu_section;
 const menuUserEdit_img = document.getElementById('user-edit');
 
